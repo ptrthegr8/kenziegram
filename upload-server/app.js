@@ -18,7 +18,7 @@ app.post('/public/uploads', upload.single('myFile'), function (req, res, next) {
     // req.body will hold the text fields, if there were any
     console.log('Uploaded: ' + req.file.filename);
     items.push(req.file.filename);
-    res.send(`Uploaded file: ${req.file.filename} <button onclick="goBack();">back</button> <script>
+    res.send(`Uploaded file: <img src='./uploads/${req.file.filename}'></img> <button onclick="goBack();">back</button> <script>
     function goBack() {
         window.history.back();
     }
@@ -47,10 +47,10 @@ app.get('/', (req, res) => {
             </header>
             <form action="http://localhost:3000/public/uploads" method="POST" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Where the Uploads Are:</legend>
+                    <legend>ʕ•ᴥ•ʔ</legend>
                     <div id="file-container">
                         <input type="file" name="myFile" id="myFile">
-                    </div>
+                    </div>(~˘▾˘)~
                     <div id="button-container">
                         <button>Upload</button>
                     </div>
@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
         
         </html>`;
         for (let i = 0; i < items.length; i++) {
-            stringCollection += `<img style='border:1px solid black;' src='${path}/${items[i]}'></img>`
+            stringCollection += `<img src='${path}/${items[i]}'></img>`
         };
         res.send(stringCollection);
     });
